@@ -6,7 +6,7 @@ itsdangerous==0.24
 Jinja2==2.10
 MarkupSafe==1.0
 mkl-fft>=1.0.0
-mkl-random>=1.0.1
+mkl-random>=1.0.0
 numpy==1.14.3
 python-engineio==2.1.1
 python-socketio==1.9.0
