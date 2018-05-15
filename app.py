@@ -33,17 +33,18 @@ def display_json():
 @socketio.on('pixel changed')
 def pixel_changed(x, y, color):
     if 0 <= x < 20 and 0 <= y < 40:
-        display[x][y] = color
+        display['pixels'][x][y] = color
         emit('sync pixel', (x, y, color), broadcast=True)
 
-@socket.io.on('brightness changed')
+@socketio.on('brightness changed')
 def brightness_changed(value):
-
+    display['brightness'] = value;
+    emit('sync brightness', value, broadcast=True)
 
 @socketio.on('clear')
 def clear():
     global display 
-    display = zeros()
+    display['pixels'] = zeros()
     emit('clear_sync', broadcast=True)
 
 
